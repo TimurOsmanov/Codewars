@@ -57,3 +57,30 @@ print(valid_solution([
   [2, 8, 7, 4, 1, 9, 6, 3, 5],
   [3, 0, 0, 4, 8, 1, 1, 7, 9]
 ]))
+
+# best practice
+# correct = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+#
+# def validSolution(board):
+#     # check rows
+#     for row in board:
+#         if sorted(row) != correct:
+#             return False
+#
+#     # check columns
+#     for column in zip(*board):
+#         if sorted(column) != correct:
+#             return False
+#
+#     # check regions
+#     for i in range(3):
+#         for j in range(3):
+#             region = []
+#             for line in board[i*3:(i+1)*3]:
+#                 region += line[j*3:(j+1)*3]
+#
+#             if sorted(region) != correct:
+#                 return False
+#
+#     # if everything correct
+#     return True
