@@ -20,14 +20,14 @@ from math import factorial
 
 
 def expand(expr):
-    b1, b2, pow = re.findall(r'[+-]?\w+', expr)
+    b1, b2, pow_ = re.findall(r'[+-]?\w+', expr)
     b1_pos_neg, b1_num, b1_symb = re.findall(r'[+-]', b1), re.findall(r'\d+', b1), re.findall(r'[a-z]', b1)[0]
     b1_pos_neg, b1_num = '' if b1_pos_neg == [] else b1_pos_neg[0], 1 if b1_num == [] else b1_num[0]
     b1_num = int(str(b1_pos_neg) + str(b1_num))
-    sum_ = [factorial(int(pow)) // (factorial(x) * factorial(int(pow) - x)) for x in range(int(pow) + 1)]
-    bin_ex = [int(b2)**x * int(b1_num)**(int(pow) - x) * sum_[x] for x in range(int(pow) + 1)]
-    ans = [f"{x}{b1_symb}^{int(pow) - y}".replace(f"{b1_symb}^1", b1_symb).replace(f"{b1_symb}^0", '')
-           for x, y in zip(bin_ex, range(int(pow) + 1))]
+    sum_ = [factorial(int(pow_)) // (factorial(x) * factorial(int(pow_) - x)) for x in range(int(pow_) + 1)]
+    bin_ex = [int(b2) ** x * int(b1_num) ** (int(pow_) - x) * sum_[x] for x in range(int(pow_) + 1)]
+    ans = [f"{x}{b1_symb}^{int(pow_) - y}".replace(f"{b1_symb}^1", b1_symb).replace(f"{b1_symb}^0", '')
+           for x, y in zip(bin_ex, range(int(pow_) + 1))]
     ans = [x if re.findall(r'\d+', x)[0] != '1' else (x if ans == ['1'] else
                                                       (x if x in ('1', '-1') else x.replace('1', ''))) for x in ans]
     ans[1:] = ['+' + x if x[0] != '-' else x for x in ans[1:]]
@@ -42,6 +42,7 @@ print(expand("(x-1)^1"))
 # best practice
 ########################################################################################################################
 ########################################################################################################################
+#
 # import re
 #
 # P = re.compile(r'\((-?\d*)(\w)\+?(-?\d+)\)\^(\d+)')

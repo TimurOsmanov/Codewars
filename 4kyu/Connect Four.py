@@ -1,3 +1,18 @@
+# Take a look at wiki description of Connect Four game:
+# https://en.wikipedia.org/wiki/Connect_Four
+# The grid is 6 row by 7 columns, those being named from A to G.
+# You will receive a list of strings showing the order of the pieces which dropped in columns
+#   pieces_position_list = ["A_Red",
+#                           "B_Yellow",
+#                           "A_Red",
+#                           "B_Yellow",
+#                           "A_Red",
+#                           "B_Yellow",
+#                           "G_Red",
+#                           "B_Yellow"]
+# The list may contain up to 42 moves and shows the order the players are playing.
+# The first player who connects four items of the same color is the winner.
+# You should return "Yellow", "Red" or "Draw" accordingly.
 import numpy as np
 from itertools import accumulate as ac
 
@@ -61,9 +76,17 @@ def who_is_winner(pieces_position_list):
                 return func(x)
 
 
-a = who_is_winner(['C_Red', 'E_Yellow', 'F_Red', 'F_Yellow', 'E_Red', 'A_Yellow', 'A_Red', 'C_Yellow', 'E_Red', 'D_Yellow', 'G_Red', 'C_Yellow', 'A_Red', 'G_Yellow', 'A_Red', 'B_Yellow', 'G_Red', 'D_Yellow', 'D_Red', 'A_Yellow', 'C_Red', 'G_Yellow', 'C_Red', 'E_Yellow', 'B_Red', 'C_Yellow'])
+a = who_is_winner(['C_Red', 'E_Yellow', 'F_Red', 'F_Yellow', 'E_Red', 'A_Yellow', 'A_Red', 'C_Yellow', 'E_Red',
+                   'D_Yellow', 'G_Red', 'C_Yellow', 'A_Red', 'G_Yellow', 'A_Red', 'B_Yellow', 'G_Red', 'D_Yellow',
+                   'D_Red', 'A_Yellow', 'C_Red', 'G_Yellow', 'C_Red', 'E_Yellow', 'B_Red', 'C_Yellow'])
 print(a)
+
+########################################################################################################################
+########################################################################################################################
 # best practice
+########################################################################################################################
+########################################################################################################################
+#
 # import numpy as np
 # from scipy.signal import convolve2d
 # def who_is_winner(pieces_position_list):

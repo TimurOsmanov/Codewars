@@ -1,3 +1,13 @@
+# Create a function that differentiates a polynomial for a given value of x.
+#
+# Your function will receive 2 arguments: a polynomial as a string, and a point to evaluate the equation as an integer.
+#
+# Assumptions:
+# There will be a coefficient near each x, unless the coefficient equals 1 or -1.
+# There will be an exponent near each x, unless the exponent equals 0 or 1.
+# All exponents will be greater or equal to zero
+# differenatiate("12x+2", 3)      ==>   returns 12
+# differenatiate("x^2+3x+2", 3)   ==>   returns 9
 def differentiate(equation, point):
     c = list(map(lambda q:  '+' + q if q[0] != '-' else q, equation.split('+')))
     d = [y for x in c for y in x.split('-') if 'x' in y]
@@ -19,7 +29,12 @@ def differentiate(equation, point):
 
 print(differentiate("-5x^2+10x+4", 3))
 
+########################################################################################################################
+########################################################################################################################
 # best practice
+########################################################################################################################
+########################################################################################################################
+#
 # from collections import defaultdict
 # import re
 #

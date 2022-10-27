@@ -1,3 +1,14 @@
+# You are given a binary tree (class Node)
+# Your task is to return the list with elements from tree sorted by levels, which means the root element goes first,
+# then root children (from left to right) are second and third, and so on.
+#
+# Return empty list if root is None.
+#
+# Example 1 - following tree:
+#                  2
+#             8        9
+#           1  3     4   5
+# Should return following list: [2,8,9,1,3,4,5]
 class Node:
     def __init__(self, L, R, n):
         self.left = L
@@ -38,8 +49,15 @@ def tree_by_levels(node):
     answer, answer2, i = [], [], 0
     return ans
 
+
 print(tree_by_levels(Node(Node(None, Node(None, None, 4), 2), Node(Node(None, None, 5), Node(None, None, 6), 3), 1)))
+
+########################################################################################################################
+########################################################################################################################
 # best practice
+########################################################################################################################
+########################################################################################################################
+#
 # def tree_by_levels(node):
 #     nodes = [node] if node else []
 #     for node in nodes:
@@ -48,4 +66,3 @@ print(tree_by_levels(Node(Node(None, Node(None, None, 4), 2), Node(Node(None, No
 #             if node.right:
 #                 nodes.append(node.right)
 #     return list(node.value for node in nodes)
-
