@@ -27,6 +27,8 @@ unsigned int countBits(unsigned long long n)
 
 int main ()
 {
-    cout << countBits(2827890779060356369);
+     unsigned int input;
+     cin >> input;
+     cout << countBits(input);
     return 0;
 }
