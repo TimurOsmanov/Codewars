@@ -32,3 +32,19 @@ int main ()
      cout << countBits(input);
     return 0;
 }
+//best practice # 1
+// #include <limits>
+//#include <bitset>
+//inline constexpr unsigned int countBits(const unsigned long long n) noexcept {
+//  std::bitset<std::numeric_limits<unsigned long long>::digits> b(n);
+//  return b.count();
+//}
+//best practice # 2  "kernighan bit counting"
+//unsigned int countBits(unsigned long long n){
+//  int count = 0;
+//  while (n) {
+//    n &= (n-1);
+//    ++count;
+//  }
+//  return count;
+//}
